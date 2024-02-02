@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 import 'package:intl/intl.dart';
+import 'package:mednet/doctor/doctor_layout/cubit/doctor_cubit.dart';
 import 'package:mednet/logic/app_bloc/app_cubit.dart';
 import 'package:mednet/splash_screen/splash_screen.dart';
 import 'constants/components.dart';
 import 'constants/colors.dart';
+import 'engineer/engineer_layout/cubit/engineer_cubit.dart';
 import 'logic/login_bloc/auth_cubit.dart';
 import 'logic/registration_bloc/registration_cubit.dart';
 import 'network/local/bloc_observer.dart';
@@ -58,6 +60,12 @@ class MyAppState extends State<MyApp> {
         ),
         BlocProvider(
           create: (BuildContext context) => AppCubit(),
+        ),
+        BlocProvider(
+          create: (BuildContext context) => DoctorCubit(),
+        ),
+        BlocProvider(
+          create: (BuildContext context) => EngineerCubit(),
         ),
       ],
       child: MaterialApp(

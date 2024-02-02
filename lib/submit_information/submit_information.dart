@@ -45,19 +45,17 @@ class SubmitInformation extends StatelessWidget {
                           borderRadius: BorderRadius.circular(15),
                         ),
                         child: TextButton(
-                            // centerNameController
-                            // deviceNameController
-                            // manufactureCompanyController
-                            // modelNumberController
+
                           onPressed: () {
                             if(SubmitInformationCubit.get(context)
                                 .formKey
                                 .currentState!
                                 .validate()){
-                              CacheHelper.saveData(key: 'centerName', value: SubmitInformationCubit.get(context).centerNameController.text);
-                              CacheHelper.saveData(key: 'deviceName', value: SubmitInformationCubit.get(context).deviceNameController.text);
-                              CacheHelper.saveData(key: 'manufactureCompany', value: SubmitInformationCubit.get(context).manufactureCompanyController.text);
-                              CacheHelper.saveData(key: 'modelNumber', value: SubmitInformationCubit.get(context).modelNumberController.text);
+                              CacheHelper.saveData(key: 'compCenterName', value: SubmitInformationCubit.get(context).centerNameController.text);
+                              CacheHelper.saveData(key: 'compDeviceName', value: SubmitInformationCubit.get(context).deviceNameController.text);
+                              CacheHelper.saveData(key: 'compManufactureCompany', value: SubmitInformationCubit.get(context).manufactureCompanyController.text);
+                              CacheHelper.saveData(key: 'compModelNumber', value: SubmitInformationCubit.get(context).modelNumberController.text);
+                              CacheHelper.saveData(key: 'reportToEng', value: 'done');
                               Navigator.push(context, MaterialPageRoute(builder: (context) => AppLayout(),));
                               showSuccessSnackBar(context: context, message: 'the report is sent successfully');
                               print(CacheHelper.getData(key: 'centerName'));

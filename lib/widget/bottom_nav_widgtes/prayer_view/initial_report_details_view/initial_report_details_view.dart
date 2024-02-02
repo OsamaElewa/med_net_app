@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mednet/network/local/cache_helper.dart';
 
-class ReportDetailsView extends StatelessWidget {
-  const ReportDetailsView({super.key});
+class InitialReportDetailsView extends StatelessWidget {
+  const InitialReportDetailsView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,6 @@ class ReportDetailsView extends StatelessWidget {
                 padding: const EdgeInsets.all(20.0),
                 child: Container(
                   padding: const EdgeInsets.all(20),
-                  height: 300,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     color: Colors.amber,
@@ -30,16 +29,17 @@ class ReportDetailsView extends StatelessWidget {
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
                     children: [
                       const Text(
-                        'Center Name : ',
+                        'Device type:',
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 16,
                             fontWeight: FontWeight.bold),
                       ),
                       Text(
-                        CacheHelper.getData(key: 'centerName'),
+                        CacheHelper.getData(key: 'engDeviceTypeName'),
                         style: const TextStyle(
                             color: Colors.white,
                             fontSize: 16,
@@ -49,14 +49,14 @@ class ReportDetailsView extends StatelessWidget {
                         height: 20,
                       ),
                       const Text(
-                        'Device Name : ',
+                        'Problem name: ',
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 16,
                             fontWeight: FontWeight.bold),
                       ),
                       Text(
-                        CacheHelper.getData(key: 'deviceName'),
+                        CacheHelper.getData(key: 'problemName'),
                         style: const TextStyle(
                             color: Colors.white,
                             fontSize: 16,
@@ -66,31 +66,14 @@ class ReportDetailsView extends StatelessWidget {
                         height: 20,
                       ),
                       const Text(
-                        'Manufacture Company : ',
+                        'Initial cost : ',
                         style: TextStyle(
                             color: Colors.black,
                             fontSize: 16,
                             fontWeight: FontWeight.bold),
                       ),
                       Text(
-                        CacheHelper.getData(key: 'manufactureCompany'),
-                        style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      const Text(
-                        'Model Number : ',
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 16,
-                            fontWeight: FontWeight.bold),
-                      ),
-                      Text(
-                        CacheHelper.getData(key: 'modelNumber'),
+                        CacheHelper.getData(key: 'initialCost'),
                         style: const TextStyle(
                             color: Colors.white,
                             fontSize: 16,

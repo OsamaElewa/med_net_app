@@ -11,10 +11,9 @@ class JobsList extends StatefulWidget {
 }
 
 class _JobsListState extends State<JobsList> {
-  int activeIndex = 0;
+  int? activeIndex;
   @override
   Widget build(BuildContext context) {
-    CacheHelper.saveData(key: 'jobId', value: activeIndex);
     return SizedBox(
       height: 290,
       child: ListView.separated(

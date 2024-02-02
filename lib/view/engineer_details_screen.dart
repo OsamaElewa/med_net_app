@@ -103,8 +103,7 @@ class EngineerDetailsScreen extends StatelessWidget {
             const SizedBox(
               height: 25,
             ),
-            CacheHelper.getData(key: 'jobId') == 0
-                ? Container(
+            Container(
                     height: 50,
                     width: 150,
                     decoration: BoxDecoration(
@@ -123,8 +122,7 @@ class EngineerDetailsScreen extends StatelessWidget {
                           'Confirm',
                           style: TextStyle(color: Colors.black),
                         )),
-                  )
-                : const SizedBox(),
+                  ),
           ],
         ),
       ),

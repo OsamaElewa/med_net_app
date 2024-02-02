@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:mednet/constants/show_snack_bar.dart';
+import 'package:mednet/doctor/doctor_layout/bottom_nav_screen.dart';
+import 'package:mednet/engineer/engineer_layout/bottom_nav_screen.dart';
 import 'package:mednet/logic/register_cubit/register_cubit.dart';
 import 'package:mednet/logic/register_cubit/register_state.dart';
 import 'package:mednet/network/local/cache_helper.dart';
@@ -87,7 +89,13 @@ class SignupView extends StatelessWidget {
                                   CacheHelper.saveData(key: 'regPassword', value: RegisterCubit.get(context).passwordController.text);
                                   CacheHelper.saveData(key: 'regPhone', value: RegisterCubit.get(context).phoneController.text);
                                   print(CacheHelper.getData(key: 'regName'));
-                                  Navigator.push(context, MaterialPageRoute(builder: (context) => AppLayout(),));
+                                  if(CacheHelper.getData(key: 'jobId') == 0){
+                                    Navigator.push(context, MaterialPageRoute(builder: (context) => DoctorLayout(),));
+                                  }else if(CacheHelper.getData(key: 'jobId') == 1){
+                                    Navigator.push(context, MaterialPageRoute(builder: (context) => EngineerLayout(),));
+                                  } else{
+                                    Navigator.push(context, MaterialPageRoute(builder: (context) => AppLayout(),));
+                                  }
                                   showSuccessSnackBar(context: context, message: 'Sign up is done successfully');
                                 }
                               },

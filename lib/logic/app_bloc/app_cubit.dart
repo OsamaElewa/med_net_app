@@ -3,9 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:location/location.dart';
 import 'package:mednet/view/map/search_screen.dart';
 import '../../constants/components.dart';
-import '../../widget/bottom_nav_widgtes/home_widget.dart';
-import '../../widget/bottom_nav_widgtes/prayer_widget.dart';
-import '../../widget/bottom_nav_widgtes/profile_widget.dart';
+import '../../widget/bottom_nav_widgtes/home_view/home_widget.dart';
+import '../../widget/bottom_nav_widgtes/prayer_view/prayer_widget.dart';
+import '../../widget/bottom_nav_widgtes/rating_view/rating_widget.dart';
 import '../../widget/bottom_nav_widgtes/tours_widget.dart';
 import 'app_states.dart';
 
@@ -22,7 +22,7 @@ class AppCubit extends Cubit<AppStates> {
     const HomeWidget(),
     const SearchScreen(fromScreen: 'fromScreen'),
     const PrayerWidget(),
-    const ProfileWidget(),
+    const RatingWidget(),
   ];
   Future<LocationData?> getCurrentLocation() async {
     final location = Location();

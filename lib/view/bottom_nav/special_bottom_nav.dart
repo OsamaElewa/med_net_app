@@ -22,10 +22,10 @@ class _SpecialBottomNavState extends State<SpecialBottomNav> {
   @override
   Widget build(BuildContext context) {
     List<TabItem> tabItems = [
-      TabItem(icon: Icons.home, label: 'home'),
-      TabItem(icon: Icons.search, label: 'tours'),
-      TabItem(icon: Icons.access_time, label: 'prayer'),
-      TabItem(icon: Icons.person_2_outlined, label: 'profile'),
+      TabItem(icon: Icons.home, label: 'doctor req'),
+      TabItem(icon: Icons.search, label: 'search'),
+      TabItem(icon: Icons.access_time, label: 'engineer req'),
+      TabItem(icon: Icons.person_2_outlined, label: 'rating'),
     ];
     return BlocConsumer<AppCubit, AppStates>(
       listener: (context, state) {},
