@@ -1,0 +1,3 @@
+abstract class SendFinalReportToDoctorStates {}
+
+class SendFinalReportToDoctorInitialState extends SendFinalReportToDoctorStates{}
