@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 import 'package:mednet/select_job_view/select_job_view.dart';
 import 'package:mednet/view/bottom_nav/bottom_nav_screen.dart';
@@ -41,19 +42,17 @@ class SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        fit: StackFit.expand,
-        children: [
-          Positioned(
-            child: Image.asset(
-              'assets/images/splash_bc.png',
-              width: screenWidth(context, 1),
-              height: screenHeight(context, 1),
-              fit: BoxFit.fill,
-            ),
+      backgroundColor: Colors.black,
+      body: Center(
+        child: CircleAvatar(
+          radius: 100.r,
+          child: Image.asset(
+            'assets/images/app_logo.png',
+
+            fit: BoxFit.fill,
           ),
-        ],
+        ),
       ),
-    );
+      );
   }
 }

@@ -7,11 +7,11 @@ class RatingWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CacheHelper.getData(key: 'docRating') != null? SafeArea(
+    return CacheHelper.getData(key: 'doctorRating') != null? SafeArea(
       child: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             GestureDetector(
               onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => RateDetails(),)),

@@ -10,7 +10,8 @@ class SubmitInformationCubit extends Cubit<SubmitInformationStates> {
 
   TextEditingController centerNameController = TextEditingController();
   TextEditingController deviceNameController = TextEditingController();
-  TextEditingController manufactureCompanyController = TextEditingController();
-  TextEditingController modelNumberController = TextEditingController();
+  TextEditingController centerAddressController = TextEditingController();
+  TextEditingController doctorDescriptionController = TextEditingController();
+  TextEditingController doctorAvailableTimeController = TextEditingController();
   var formKey = GlobalKey<FormState>();
 }

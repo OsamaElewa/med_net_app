@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mednet/doctor/applied_details/applied_details.dart';
 import 'package:mednet/network/local/cache_helper.dart';
 
@@ -9,28 +10,28 @@ class AppliedView extends StatelessWidget {
   Widget build(BuildContext context) {
     return CacheHelper.getData(key: 'acceptRequest') != null? SafeArea(
       child: Padding(
-        padding: const EdgeInsets.all(30.0),
+        padding: EdgeInsets.all(30.0.sp),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const SizedBox(height: 35,),
+            SizedBox(height: 35.h,),
             GestureDetector(
               onTap: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) =>const AppliedDetails(),));
               },
               child: Container(
-                padding: const EdgeInsets.all(7),
-                height: 120,
-                width: 120,
+                padding: EdgeInsets.all(7.sp),
+                height: 120.h,
+                width: 120.w,
                 decoration: BoxDecoration(
                   color: Colors.amber,
-                  borderRadius: BorderRadius.circular(15),
+                  borderRadius: BorderRadius.circular(15.r),
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text('your report is accepted :',style: TextStyle(color: Colors.black),),
-                    const SizedBox(height: 10,),
+                    SizedBox(height: 10.h,),
                     Text('click to view details',
                       style: TextStyle(color: Colors.white,),
                       maxLines: 1,

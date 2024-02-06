@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mednet/logic/profile_cubit/profile_cubit.dart';
 import 'package:mednet/logic/profile_cubit/profile_state.dart';
 
 import '../../constants/custom_text_field.dart';
 import '../../network/local/cache_helper.dart';
+import '../../select_job_view/select_job_view.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({super.key});
@@ -22,10 +24,10 @@ class ProfileView extends StatelessWidget {
           print('///////////////////////');
           print(CacheHelper.getData(key: 'regPhone'));
           return Padding(
-            padding: const EdgeInsets.all(20.0),
+            padding: EdgeInsets.all(20.0.sp),
             child: Column(
               children: [
-                const SizedBox(height: 35,),
+                SizedBox(height: 35.h,),
                 CustomTextField(
                   readOnly: true,
                   textInputType: TextInputType.name,
@@ -54,7 +56,7 @@ class ProfileView extends StatelessWidget {
                   hintText: 'Enter your email',
                   prefixIcon: Icon(Icons.email_outlined,color: Colors.white,),
                 ),
-                const SizedBox(height: 15,),
+                SizedBox(height: 15.h,),
                 CustomTextField(
                   readOnly: true,
                   textInputType: TextInputType.visiblePassword,
@@ -70,7 +72,7 @@ class ProfileView extends StatelessWidget {
                   prefixIcon: const Icon(Icons.lock_outline,color: Colors.white,),
                 ),
 
-                const SizedBox(height: 15,),
+                SizedBox(height: 15.h,),
                 CustomTextField(
                   readOnly: true,
                   textInputType: TextInputType.phone,
@@ -85,6 +87,17 @@ class ProfileView extends StatelessWidget {
                   hintText: 'Enter your phone number',
                   prefixIcon: const Icon(Icons.phone,color: Colors.white,),
                 ),
+                SizedBox(height: 15.h,),
+                Container(
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: Colors.amber,
+                    borderRadius: BorderRadius.circular(15.r),
+                  ),
+                  child: TextButton(
+                      onPressed: () => Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => SelectJobView(),), (route) => false),
+                      child: Text('Logout',style: TextStyle(color: Colors.black),)),
+                )
               ],
             ),
           );

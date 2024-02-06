@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:line_icons/line_icon.dart';
 import 'package:mednet/constants/colors.dart';
@@ -11,82 +12,76 @@ class HomeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      //mainAxisSize: MainAxisSize.max,
-      children: [
-        Row(
-          children: [
-            const CircleAvatar(
-              backgroundImage: AssetImage('assets/images/app_logo.png'),
-              radius: 40,
-            ),
-            const SizedBox(width: 10),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Mednet',
-                  style: GoogleFonts.nanumMyeongjo(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
-                    color: primaryColor,
-                  ),
-                ),
-                Text(
-                  'Save your time',
-                  style: GoogleFonts.nanumMyeongjo(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
-                    color: primaryColor.withOpacity(.7),
-                  ),
-                ),
-              ],
-            )
-          ],
-        ),
-        const SizedBox(height: 20),
-        CacheHelper.getData(key: 'doctorRequest') != null? Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Column(
+    return SafeArea(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        //mainAxisSize: MainAxisSize.max,
+        children: [
+          Row(
             children: [
-              GestureDetector(
-                onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) => const DocReportDetails(),));
-                },
-                child: Container(
-                  padding: const EdgeInsets.all(7),
-                  height: 120,
-                  width: 120,
-                  decoration: BoxDecoration(
-                    color: Colors.amber,
-                    borderRadius: BorderRadius.circular(15),
+              CircleAvatar(
+                backgroundImage: AssetImage('assets/images/app_logo.png'),
+                radius: 40.r,
+              ),
+              SizedBox(width: 10.w),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    'Mednet',
+                    style: GoogleFonts.nanumMyeongjo(
+                      fontSize: 20.sp,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.amber,
+                    ),
                   ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text('Center Name :',style: TextStyle(color: Colors.black),),
-                      const SizedBox(height: 10,),
-                      Text(
-                        CacheHelper.getData(key: 'doctorCenterName'),
-                        style: TextStyle(color: Colors.white,),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ],
-                  ),
-                ),
+                ],
               )
             ],
           ),
-        ) : Center(
-          child: Column(
-            children: [
-              Text('No request yet!',style: TextStyle(color: Colors.white),),
-            ],
+          SizedBox(height: 20.h),
+          CacheHelper.getData(key: 'doctorRequest') != null? Padding(
+            padding: EdgeInsets.all(20.0.sp),
+            child: Column(
+              children: [
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const DocReportDetails(),));
+                  },
+                  child: Container(
+                    padding: EdgeInsets.all(7.sp),
+                    height: 120.h,
+                    width: 120.w,
+                    decoration: BoxDecoration(
+                      color: Colors.amber,
+                      borderRadius: BorderRadius.circular(15.r),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text('Center Name :',style: TextStyle(color: Colors.black),),
+                        SizedBox(height: 10.h,),
+                        Text(
+                          CacheHelper.getData(key: 'doctorCenterName'),
+                          style: TextStyle(color: Colors.grey,),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ],
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ) : Center(
+            child: Column(
+              children: [
+                Text('No request yet!',style: TextStyle(color: Colors.white),),
+              ],
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

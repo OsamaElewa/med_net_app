@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
 import 'package:lottie/lottie.dart';
@@ -47,20 +48,22 @@ class SearchScreenState extends State<SearchScreen> {
       backgroundColor: Colors.black,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
+        automaticallyImplyLeading: false,
         title: Row(
+          mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Text(
               'Search on the nearest place',
               style: GoogleFonts.abel(
-                fontSize: 20,
+                fontSize: 20.sp,
                 fontWeight: FontWeight.bold,
                 color: primaryColor,
               ),
             ),
             const Spacer(),
-            Lottie.asset('assets/lotties/map.json',height: 100,width: 100),
+            Lottie.asset('assets/lotties/map.json',height: 100.h,width: 100.w),
 
           ],
         ),
@@ -69,7 +72,7 @@ class SearchScreenState extends State<SearchScreen> {
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: EdgeInsets.all(16.0.sp),
               child: TextField(
                 style: const TextStyle(color: Colors.white),
                 controller: _searchController,

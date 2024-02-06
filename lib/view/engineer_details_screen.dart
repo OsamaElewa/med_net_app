@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mednet/network/local/cache_helper.dart';
 import 'package:mednet/submit_information/submit_information.dart';
 import 'package:scroll_date_picker/scroll_date_picker.dart';
@@ -45,85 +46,88 @@ class EngineerDetailsScreen extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            CircleAvatar(
-              radius: 60.0,
-              backgroundImage: AssetImage(engineer.image),
-            ),
-            const SizedBox(height: 20.0),
-            Text(
-              engineer.name,
-              style: const TextStyle(
+        padding: EdgeInsets.all(16.0.sp),
+        child: SizedBox(
+          width: double.infinity,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              CircleAvatar(
+                radius: 60.0.r,
+                backgroundImage: AssetImage(engineer.image),
+              ),
+              SizedBox(height: 20.0.h),
+              Text(
+                engineer.name,
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 24.sp,
+                    fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 10.0.h),
+              Text(
+                engineer.phoneNumber,
+                style:  TextStyle(fontSize: 18.sp, color: Colors.grey),
+              ),
+              SizedBox(height: 20.0.h),
+              Text('Job Title :',style: TextStyle(
                   color: Colors.white,
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 10.0),
-            Text(
-              engineer.phoneNumber,
-              style: const TextStyle(fontSize: 18, color: Colors.grey),
-            ),
-            const SizedBox(height: 20.0),
-            const Text('Job Title :',style: TextStyle(
-                color: Colors.white,
-                fontSize: 18,
-                fontWeight: FontWeight.bold),),
-            const SizedBox(height: 20.0),
-            Text(
-              engineer.jobName,
-              style: const TextStyle(fontSize: 18, color: Colors.grey),
-            ),
-            const SizedBox(height: 20.0),
-            const Text(
-              'Distance:',
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold),
-            ),
-            Text(
-              _formatDistance(distance),
-              style: const TextStyle(fontSize: 24, color: Colors.blue),
-            ),
-            const SizedBox(height: 20.0),
-            const Text(
-              'Estimated Travel Time:',
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold),
-            ),
-            Text(
-              '$travelTime hours',
-              style: const TextStyle(fontSize: 24, color: Colors.green),
-            ),
-            const SizedBox(
-              height: 25,
-            ),
-            Container(
-                    height: 50,
-                    width: 150,
-                    decoration: BoxDecoration(
-                      color: Colors.amber,
-                      borderRadius: BorderRadius.circular(15),
+                  fontSize: 18.sp,
+                  fontWeight: FontWeight.bold),),
+              SizedBox(height: 20.0.h),
+              Text(
+                engineer.jobName,
+                style: TextStyle(fontSize: 18.sp, color: Colors.grey),
+              ),
+              SizedBox(height: 20.0.h),
+              Text(
+                'Distance:',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18.sp,
+                    fontWeight: FontWeight.bold),
+              ),
+              Text(
+                _formatDistance(distance),
+                style:  TextStyle(fontSize: 24.sp, color: Colors.blue),
+              ),
+               SizedBox(height: 20.0.h),
+               Text(
+                'Estimated Travel Time:',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 18.sp,
+                    fontWeight: FontWeight.bold),
+              ),
+              Text(
+                '$travelTime hours',
+                style: TextStyle(fontSize: 24.sp, color: Colors.green),
+              ),
+              SizedBox(
+                height: 25.h,
+              ),
+              Container(
+                      height: 50.h,
+                      width: 150.h,
+                      decoration: BoxDecoration(
+                        color: Colors.amber,
+                        borderRadius: BorderRadius.circular(15.r),
+                      ),
+                      child: TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => const SubmitInformation(),
+                                ));
+                          },
+                          child: const Text(
+                            'Confirm',
+                            style: TextStyle(color: Colors.black),
+                          )),
                     ),
-                    child: TextButton(
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const SubmitInformation(),
-                              ));
-                        },
-                        child: const Text(
-                          'Confirm',
-                          style: TextStyle(color: Colors.black),
-                        )),
-                  ),
-          ],
+            ],
+          ),
         ),
       ),
     );

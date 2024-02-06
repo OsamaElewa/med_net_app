@@ -46,29 +46,29 @@ class TextFieldSection extends StatelessWidget {
             const SizedBox(height: 15,),
             CustomTextField(
               textInputType: TextInputType.text,
-              controller: SubmitInformationCubit.get(context).manufactureCompanyController,
+              controller: SubmitInformationCubit.get(context).centerAddressController,
               validator: (value) {
                 if (value!.isEmpty) {
-                  return 'Please enter manufacture company';
+                  return 'Please enter center address';
                 }
                 return null;
               },
-              title: 'manufacture company',
-              hintText: 'Enter the manufacture company',
+              title: 'Center address',
+              hintText: 'Enter the center address',
             ),
-
             const SizedBox(height: 15,),
             CustomTextField(
               textInputType: TextInputType.text,
-              controller: SubmitInformationCubit.get(context).modelNumberController,
+              controller: SubmitInformationCubit.get(context).doctorDescriptionController,
               validator: (value) {
                 if (value!.isEmpty) {
-                  return 'Please enter model number';
+                  return 'Please enter the description';
                 }
                 return null;
               },
-              title: 'model number',
-              hintText: 'Enter the model number',
+              title: 'Description',
+              hintText: 'Enter the Description',
+              maxLines: 5,
             ),
           ],
         );

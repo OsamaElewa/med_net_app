@@ -18,36 +18,74 @@ class RateDetails extends StatelessWidget {
             )),
       ),
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(20.0),
-          child: Container(
-            padding: EdgeInsets.all(20),
-            width: double.infinity,
-            decoration: BoxDecoration(
-              color: Colors.amber,
-              borderRadius: BorderRadius.circular(15),
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text('Rating name:',style: TextStyle(color: Colors.black),),
-                SizedBox(height: 10,),
-                Text(CacheHelper.getData(key: 'docRatingName'),style: TextStyle(color: Colors.white),),
-                SizedBox(height: 20,),
-                Text('Description Rating:',style: TextStyle(color: Colors.black),),
-                SizedBox(height: 10,),
-                Text(CacheHelper.getData(key: 'docDescRating'),style: TextStyle(color: Colors.white),),
-                SizedBox(height: 20,),
-                const Text('Complain:',style: TextStyle(color: Colors.black),),
-                SizedBox(height: 10,),
-                Text(CacheHelper.getData(key: 'docComplianRating'),style: TextStyle(color: Colors.white),),
-                SizedBox(height: 20,),
-                const Text('Satisfy Rating:',style: TextStyle(color: Colors.black),),
-                SizedBox(height: 10,),
-                Text(CacheHelper.getData(key: 'docSatisfyRating'),style: TextStyle(color: Colors.white),),
-              ],
-            ),
+        child: SizedBox(
+          width: double.infinity,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              if(CacheHelper.getData(key: 'doctorRating') == 1.0)
+                const Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Icon(
+                        Icons.sentiment_very_dissatisfied,
+                        color: Colors.red,
+                        size: 150),
+                    Text('very bad',style: TextStyle(color: Colors.white),),
+                  ],
+                ),
+              if(CacheHelper.getData(key: 'doctorRating') == 2.0)
+                const Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Icon(
+                        Icons.sentiment_dissatisfied,
+                        color: Colors.redAccent,
+                        size: 150),
+                    Text('bad',style: TextStyle(color: Colors.white),),
+                  ],
+                ),
+              if(CacheHelper.getData(key: 'doctorRating') == 3.0)
+                const Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Icon(
+                        Icons.sentiment_neutral,
+                        color: Colors.amber,
+                        size: 150),
+                    Text('good',style: TextStyle(color: Colors.white),),
+                  ],
+                ),
+              if(CacheHelper.getData(key: 'doctorRating') == 4.0)
+                const Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Icon(
+                        Icons.sentiment_satisfied,
+                        color: Colors.lightGreen,
+                        size: 50),
+                    Text('very good',style: TextStyle(color: Colors.white),),
+                  ],
+                ),
+              if(CacheHelper.getData(key: 'doctorRating') == 5.0)
+                const Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Icon(
+                        Icons.sentiment_very_satisfied,
+                        color: Colors.green,
+                        size: 150),
+                    Text('excellent',style: TextStyle(color: Colors.white),),
+                  ],
+                ),
+
+            ],
           ),
         ),
       ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 import 'package:intl/intl.dart';
 import 'package:mednet/doctor/doctor_layout/cubit/doctor_cubit.dart';
@@ -53,35 +54,42 @@ class MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (BuildContext context) => RegistrationCubit(),
-        ),
-        BlocProvider(
-          create: (BuildContext context) => AppCubit(),
-        ),
-        BlocProvider(
-          create: (BuildContext context) => DoctorCubit(),
-        ),
-        BlocProvider(
-          create: (BuildContext context) => EngineerCubit(),
-        ),
-      ],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: primaryColor),
-          useMaterial3: true,
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-        ),
-        home: SplashScreen(
-          startWidget: SplashScreen(isAuthenticated: CacheHelper.getData(key: 'authenticated') ?? false,),
-          // startWidget: RegistrationScreen(),
-          // startWidget: SendPhoneScreen(),
-          isAuthenticated: CacheHelper.getData(key: 'authenticated') ?? false,
-        ),
-      ),
+    return ScreenUtilInit(
+      designSize: const Size(360, 690),
+      minTextAdapt: true,
+      splitScreenMode: true,
+      builder: (context, child) {
+        return MultiBlocProvider(
+          providers: [
+            BlocProvider(
+              create: (BuildContext context) => RegistrationCubit(),
+            ),
+            BlocProvider(
+              create: (BuildContext context) => AppCubit(),
+            ),
+            BlocProvider(
+              create: (BuildContext context) => DoctorCubit(),
+            ),
+            BlocProvider(
+              create: (BuildContext context) => EngineerCubit(),
+            ),
+          ],
+          child: MaterialApp(
+            debugShowCheckedModeBanner: false,
+            theme: ThemeData(
+              colorScheme: ColorScheme.fromSeed(seedColor: primaryColor),
+              useMaterial3: true,
+              visualDensity: VisualDensity.adaptivePlatformDensity,
+            ),
+            home: SplashScreen(
+              startWidget: SplashScreen(isAuthenticated: CacheHelper.getData(key: 'authenticated') ?? false,),
+              // startWidget: RegistrationScreen(),
+              // startWidget: SendPhoneScreen(),
+              isAuthenticated: CacheHelper.getData(key: 'authenticated') ?? false,
+            ),
+          ),
+        );
+      },
     );
   }
 }

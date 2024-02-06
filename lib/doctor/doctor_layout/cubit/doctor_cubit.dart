@@ -9,7 +9,6 @@ import 'package:mednet/doctor/send_report/send_report.dart';
 import '../../../constants/components.dart';
 import 'doctor_state.dart';
 
-
 class DoctorCubit extends Cubit<DoctorStates> {
   DoctorCubit() : super(DoctorInitialState());
 
@@ -26,7 +25,7 @@ class DoctorCubit extends Cubit<DoctorStates> {
     const ProfileView(),
   ];
 
-  void changeBot(index, context)async{
+  void changeBot(index, context) async {
     emit(ChangeBotNavState());
     currentIndex = index;
   }
@@ -35,6 +34,7 @@ class DoctorCubit extends Cubit<DoctorStates> {
     emit(ChangeAppLocaleState());
     appLocale = Locale(value);
   }
+
   bool _isBottomBarVisible = true;
 
   bool get isBottomBarVisible => _isBottomBarVisible;

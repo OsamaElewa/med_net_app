@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:mednet/engineer/report_about_device_view/cubit/report_about_device_cubit.dart';
 import 'package:mednet/engineer/report_about_device_view/cubit/report_about_device_state.dart';
 import 'package:mednet/engineer/report_about_device_view/widgets/text_field_section.dart';
@@ -20,22 +21,22 @@ class ReportAboutDeviceView extends StatelessWidget {
           return SafeArea(
             child: SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.all(20.0),
+                padding: EdgeInsets.all(20.0.sp),
                 child: Form(
                   key: ReportDeviceCubit.get(context).formKey,
                   child: Column(
                     children: [
-                      const Text('Let\'s send a description report to the service provider',style: TextStyle(color: Colors.white,fontSize: 25,fontWeight: FontWeight.bold),),
+                      Text('Let\'s send a description report to the service provider',style: TextStyle(color: Colors.white,fontSize: 25.sp,fontWeight: FontWeight.bold),),
                       const Text('let the service provider know some information about the problem',style: TextStyle(color: Colors.white,),),
-                      const SizedBox(height: 25,),
+                      SizedBox(height: 25.h,),
                       TextFieldSection(),
-                      const SizedBox(height: 25,),
+                      SizedBox(height: 25.h,),
                       Container(
                         width: double.infinity,
-                        height: 50,
+                        height: 50.h,
                         decoration: BoxDecoration(
                           color: Colors.amber,
-                          borderRadius: BorderRadius.circular(15),
+                          borderRadius: BorderRadius.circular(15.r),
                         ),
                         child: TextButton(
                           // centerNameController
@@ -56,7 +57,7 @@ class ReportAboutDeviceView extends StatelessWidget {
                               print(CacheHelper.getData(key: 'doctorCenterName'));
                             }
                           },
-                          child: const Text('Submit',style: TextStyle(color: Colors.black,fontSize: 18),),
+                          child: Text('Submit',style: TextStyle(color: Colors.grey,fontSize: 18.sp),),
                         ),
                       ),
                     ],
